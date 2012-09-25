@@ -1,0 +1,60 @@
+socket.on('sendmessage', function (user,message) {
+       socket.broadcast.emit('message', user, message,socket.room);
+       
+  });
+
+  socket.on('changeroom', function (room,oldroom) {
+    console.log("//////////////////////////" + oldroom);
+    roomlist[room].addUser(socket.clientname);
+   roomlist[oldroom].removeUser(socket.clientname);
+     socket.roomid = room;
+     socket.room = roomlist[room].name;
+     socket.join(roomlist[room].name);
+      roomusers = roomlist[room].getUser();
+     io.sockets.emit('getusers');
+    socket.emit('roomlist',roomlist);
+     socket.broadcast.emit('connectplayermessage',socket.clientname,roomlist[room].name,roomlist[oldroom].name);
+    
+  });
+
+   
+  
+  
+  socket.on('initializeplayer', function (newplayername) {
+     socket.clientname = newplayername;
+     socket.room = ('Lobby');
+     socket.roomid = 0;
+     socket.join('Lobby');
+    socket.set('nickname',newplayername);
+     playerlist.push(newplayername);
+      roomlist[0].addUser(newplayername);
+      clientids.push(socket.id);
+    roomusers = roomlist[0].getUser();
+       socket.emit('roomlist',roomlist);
+    io.sockets.emit('getusers');
+  socket.broadcast.emit('connectplayermessage',newplayername, "Lobby", "None");
+
+ 
+
+      
+  });
+   socket.on('getroomusers', function(){
+     roomusers = roomlist[socket.roomid].getUser();
+    socket.emit('playerlist',roomusers);
+ 
+});
+  
+ socket.on('disconnect', function(){
+  
+     socket.broadcast.emit('connectplayermessage',socket.clientname, "left");
+     roomlist[socket.roomid].removeUser(socket.clientname);
+ io.sockets.emit('getusers');
+  socket.broadcast.emit('connectplayermessage',socket.clientname,'none',roomlist[socket.roomid].name);
+ 
+});
+       
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+ socket.on('getserverusers', function(){
+    socket.emit('playerlist',playerlist);
+ 
+}); 

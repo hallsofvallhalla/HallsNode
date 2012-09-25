@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+	 <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+<html>
+	
+<head>
+	<title>Halls Node</title>
+	 <link href="style.css" rel="stylesheet" type="text/css" /> 
+
+	
+</head>
+
+	
+	<script type="text/javascript">
+	  var socket = io.connect('http://localhost:8080');
+	//////////////Assign each session the player name/////
+	  var randid = Math.floor(Math.random() * 9999);
+	  var playername = "player" + randid;
+	 /////var playername = "<?php echo $playerinfo3['name']; ?>";
+	///////////////////////////////////////////////////
+///////////////////////////////////////Modules Includes/////////////////////////////
+	</script>
+
+
+<script type="text/javascript" src="modules/client/chat.js"></script>
+
+
+<script type="text/javascript">
+
+
+
+
+ 
+ 
+
+	</script>
+	
+	<body>
+	
+	
+	 <div id="playerlist">
+	 <b><u>Players Online</u></b>
+	</div>
+	  <div id="chatwindow">
+	 
+	  </div>
+	   
+    <div id="chatbox">
+   <form name="submitchat" id="submittedchat" ><br>
+		  <input type="text" name="message" size="60" value"" >
+		  <input type="button" onclick="javascript:chatsubmitted(message.value)" value="Say" >
+	 </form>
+  </div>
+   
+	</body>
+	
+</html>

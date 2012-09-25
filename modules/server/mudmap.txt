@@ -1,0 +1,22 @@
+include('modules/server/maps.js');
+
+socket.on('getmap', function (map,location) {
+   
+   var themap = eval(map);
+  var thelumber = eval(map + "_lumber");
+  var lumber = thelumber[location];
+  var themining = eval(map + "_mining");
+  var mining = themining[location];
+  var theharvest = eval(map + "_harvest");
+  var harvest = theharvest[location];
+  var thehunting = eval(map + "_hunting");
+  var hunting = thehunting[location];
+  var thefishing = eval(map + "_fishing");
+  var fishing = thefishing[location];
+     socket.emit('acceptmap',themap,lumber,mining,harvest,hunting,fishing);
+    
+    
+  });
+
+
+

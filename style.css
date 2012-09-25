@@ -1,0 +1,36 @@
+ #chatwindow {
+     
+     float: left;
+  	width:450px;
+	height:400px;
+	border: double;
+       border: 2px solid #555;
+	}
+  #chatbox {
+        position: absolute;
+        top: 410px;
+        left: 160px;
+  	width:450px;
+	height:50px;
+	border: double;
+       border: 2px solid #555;
+       
+	}
+     
+        
+#playerlist {
+       float: left;
+   	width:150px;
+	height:400px;
+	border: 2px solid #555;
+        border-right: none;
+	}
+ 
+#roomlist {
+  float: left;
+   	width:125px;
+	height:583px;
+	padding-left: 10px;
+       border: 2px solid #555;
+       border-left: none;
+	} 
