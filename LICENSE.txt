@@ -1,0 +1,7 @@
+You are free to use this commerically or privately. 
+You may alter my code and additions how you want and DO NOT need to share the changes
+However please check the NODEJS LICENSE on its terms. 
+You MAY NOT remove this LICENSE file from your deployment.
+I give no warranty on this software.  
+
+ I would appreciate a link back to indie-resource.com. 
