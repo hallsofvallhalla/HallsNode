@@ -6,3 +6,6 @@ http://www.youtube.com/playlist?list=PLeTEbs69tkOfX8CdSW-4sarw1zWYe4V2B&feature=
 or look up hallsofvallhalla
 
 Enjoy!!
+
+If you get an error when running server.bat or just starting the server in general you MUST use a current
+version of NodeJS and socket io. Copy current good Node, npm, Node_Modules, and socket.io folder to this directory.
