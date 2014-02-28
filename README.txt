@@ -9,3 +9,5 @@ Enjoy!!
 
 If you get an error when running server.bat or just starting the server in general you MUST use a current
 version of NodeJS and socket io. Copy current good Node, npm, Node_Modules, and socket.io folder to this directory.
+
+You can go to indie-resource.com for questions
