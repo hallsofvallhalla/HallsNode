@@ -14,16 +14,29 @@ function include(file_) {
 }
 
 function handler (req, res) {
+  if ( req.url == '/' ) {
   fs.readFile(__dirname + '/index.html',
-  function (err, data) {
-    if (err) {
-      res.writeHead(500);
-      return res.end('Error loading index.html');
-    }
-
-    res.writeHead(200);
-    res.end(data);
-  });
+	  function (err, data) {
+	    if (err) {
+	      res.writeHead(500);
+	      return res.end('Error loading index.html');
+	    }
+	
+	    res.writeHead(200);
+	    res.end(data);
+	  });
+  } else {
+  	fs.readFile(__dirname + req.url,
+  	  function (err, data) {
+  	  	if ( err ) {
+  	  		res.writeHead(500);
+  	  		return res.end( 'Error loading ' + req.url );
+  	  	}
+	  	  res.writeHead(200);
+	  	  res.end(data);
+  	  }
+  	  );
+  }
 }
 
 
@@ -92,6 +105,3 @@ socket.on('sendmessage', function(data){
 
 
 });
-
-
- 
